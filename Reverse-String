@@ -1,0 +1,23 @@
+DECLARE OutputString : STRING
+DECLARE InputString : STRING
+DECLARE UpperBound : INTEGER
+DECLARE LowerBound : INTEGER
+DECLARE Index : INTEGER
+
+OUTPUT "Please input a suitable sentence/ string/ message."
+INPUT InputString
+
+OutputString ← ""
+UpperBound ← LENGTH (InputString)
+FOR Index ← LENGTH (InputString) to 1 STEP -1
+  IF MID (InputString, Index, 1) = " "
+    THEN LowerBound ← Index
+         Range ← UpperBound - LowerBound
+         UpperBound ← LowerBound - 1
+         LowerBound ← LowerBound + 1
+         OutputString ← OutputString & " " & MID (InputString, LowerBound, Range)
+  END IF
+NEXT Index
+Range ← LowerBound - 2
+OutputString ← OutputString & " " & MID (InputString, 1, Range)
+OUTPUT OutputString
